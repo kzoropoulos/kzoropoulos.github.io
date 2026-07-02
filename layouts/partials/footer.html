@@ -1,0 +1,5 @@
+{{- if not (.Param "hideFooter") }}
+<footer class="footer">
+    <span>&copy; {{ now.Year }} <a href="{{ "" | absLangURL }}">Kostantinos Zoropoulos</a>. All Rights Reserved.</span>
+</footer>
+{{- end }}

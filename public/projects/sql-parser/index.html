@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Custom SQL Lexer and Parser | Kostantinos Zoropoulos | Computer Engineer</title>
+<meta name="keywords" content="C, Flex, Bison, Compilers, SQL">
+<meta name="description" content="Engineering of a custom lexical analyzer and parser utilizing Flex, Bison, and C.">
+<meta name="author" content="Kostas Zoropoulos">
+<link rel="canonical" href="http://localhost:1313/projects/sql-parser/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.cd9298b33628769aa1bc1acebbbfd7aa11ce81dfe03484d479e1907760249a1d.css" integrity="sha256-zZKYszYodpqhvBrOu7/XqhHOgd/gNITUeeGQd2Akmh0=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/brain-circuit.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/brain-circuit.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/brain-circuit.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/sql-parser/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+
+<style>
+body {
+    background: url('/dark3.jpg') no-repeat center center fixed !important;
+    background-size: cover !important;
+}
+
+ 
+.social-icons a, 
+.menu a, 
+.logo a, 
+.profileMode .subtitle a,
+.post-entry,
+.post-entry .entry-header h2,
+.button,
+.post-tags a,
+.toc details summary,
+.toc a {
+    transition: all 0.25s ease-in-out !important;
+}
+
+ 
+.social-icons a, 
+.menu a,
+.post-tags a,
+.toc details summary,
+.toc a {
+    color: #FFC107 !important;
+}
+
+ 
+.social-icons a:hover, 
+.menu a:hover,
+.post-tags a:hover,
+.toc details summary:hover,
+.toc a:hover {
+    color: #ffffff !important;
+}
+
+ 
+.logo a:hover, .profileMode .subtitle a:hover {
+    color: #FFC107 !important;
+}
+
+strong {
+    color: #FFC107 !important;
+}
+
+ 
+.button {
+    background-color: transparent !important;
+    border: 1px solid #FFC107 !important;
+    color: #FFC107 !important;
+}
+
+.button:hover {
+    border: 1px solid #ffffff !important;
+    color: #ffffff !important;
+}
+
+code {
+    color: #FFC107 !important;
+    background-color: rgba(255, 193, 7, 0.1) !important;
+    border-radius: 4px;
+    padding: 2px 4px;
+}
+
+ 
+.page-header h1, 
+.post-title {
+    color: #FFC107 !important;
+}
+
+.post-entry {
+    background-color: transparent !important;
+    border: 1px solid #FFC107 !important;
+}
+
+.post-entry:hover {
+    border: 1px solid #ffffff !important;
+}
+
+.post-entry:hover .entry-header h2 {
+    color: #FFC107 !important;
+}
+
+.post-tags a {
+    background-color: transparent !important;
+}
+
+ 
+.toc {
+    background-color: transparent !important;
+    border: 1px solid #FFC107 !important;
+}
+
+ 
+@keyframes fadeSlideIn {
+    0% { opacity: 0; transform: translateY(12px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.main {
+    animation: fadeSlideIn 0.4s ease-out forwards;
+}
+
+ 
+.entry-footer, .post-meta {
+    display: none !important;
+}
+</style>
+
+<meta property="og:url" content="http://localhost:1313/projects/sql-parser/">
+  <meta property="og:site_name" content="Kostantinos Zoropoulos | Computer Engineer">
+  <meta property="og:title" content="Custom SQL Lexer and Parser">
+  <meta property="og:description" content="Engineering of a custom lexical analyzer and parser utilizing Flex, Bison, and C.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2026-05-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-05-05T00:00:00+00:00">
+    <meta property="article:tag" content="C">
+    <meta property="article:tag" content="Flex">
+    <meta property="article:tag" content="Bison">
+    <meta property="article:tag" content="Compilers">
+    <meta property="article:tag" content="SQL">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Custom SQL Lexer and Parser">
+  <meta name="twitter:description" content="Engineering of a custom lexical analyzer and parser utilizing Flex, Bison, and C.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Custom SQL Lexer and Parser",
+      "item": "http://localhost:1313/projects/sql-parser/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Custom SQL Lexer and Parser",
+  "name": "Custom SQL Lexer and Parser",
+  "description": "Engineering of a custom lexical analyzer and parser utilizing Flex, Bison, and C.",
+  "keywords": [
+    "C", "Flex", "Bison", "Compilers", "SQL"
+  ],
+  "articleBody": "Overview Engineered a custom lexical analyzer and parser utilizing the combination of Flex, Bison, and C.\nTechnical Implementation Core Architecture: Flex for token generation (Lexical Analysis) and Bison for syntactic structure validation (Parsing). Grammar Design: Designed strict grammatical rules for the accurate interpretation and robust error handling of SQL instructions. ",
+  "wordCount" : "50",
+  "inLanguage": "en",
+  "datePublished": "2026-05-05T00:00:00Z",
+  "dateModified": "2026-05-05T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Kostas Zoropoulos"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/sql-parser/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kostantinos Zoropoulos | Computer Engineer",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/brain-circuit.png"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Kostantinos Zoropoulos | Computer Engineer (Alt + H)">Kostantinos Zoropoulos | Computer Engineer</a>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academic/" title="Academic Profile">
+                    <span>Academic Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="About me">
+                    <span>About me</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/projects/">Projects</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
+    <h1 class="post-title entry-hint-parent">
+      Custom SQL Lexer and Parser
+    </h1>
+    <div class="post-description">
+      Engineering of a custom lexical analyzer and parser utilizing Flex, Bison, and C.
+    </div>
+    <div class="post-meta">
+
+<span title='2026-05-05 00:00:00 +0000 UTC'>May 5, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Kostas Zoropoulos</span>
+
+</div>
+  </header> <details class="toc" >
+    <summary accesskey="c" title="(Alt + C)">
+        <span class="title">Table of Contents</span>
+    </summary>
+
+    <div class="inner"><ul>
+            <li>
+                <a href="#overview" aria-label="Overview">Overview</a></li>
+            <li>
+                <a href="#technical-implementation" aria-label="Technical Implementation">Technical Implementation</a>
+            </li>
+        </ul>
+    </div>
+</details>
+
+  <div class="post-content md-content"><h3 id="overview">Overview<a hidden class="anchor" aria-hidden="true" href="#overview">#</a></h3>
+<p>Engineered a custom lexical analyzer and parser utilizing the combination of Flex, Bison, and C.</p>
+<h3 id="technical-implementation">Technical Implementation<a hidden class="anchor" aria-hidden="true" href="#technical-implementation">#</a></h3>
+<ul>
+<li><strong>Core Architecture:</strong> Flex for token generation (Lexical Analysis) and Bison for syntactic structure validation (Parsing).</li>
+<li><strong>Grammar Design:</strong> Designed strict grammatical rules for the accurate interpretation and robust error handling of SQL instructions.</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/c/">C</a></li>
+      <li><a href="http://localhost:1313/tags/flex/">Flex</a></li>
+      <li><a href="http://localhost:1313/tags/bison/">Bison</a></li>
+      <li><a href="http://localhost:1313/tags/compilers/">Compilers</a></li>
+      <li><a href="http://localhost:1313/tags/sql/">SQL</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2026 <a href="http://localhost:1313/">Kostantinos Zoropoulos</a>. All Rights Reserved.</span>
+</footer>
+</body>
+
+</html>

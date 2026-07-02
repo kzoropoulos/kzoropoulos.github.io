@@ -1,0 +1,113 @@
+{{ $bgImage := .Params.backgroundImage | default .Site.Params.backgroundImage }}
+{{ if $bgImage }}
+<style>
+body {
+    background: url('{{ $bgImage }}') no-repeat center center fixed !important;
+    background-size: cover !important;
+}
+
+/* 1. Καθολικός ορισμός ομαλής μετάβασης (Transition) */
+.social-icons a, 
+.menu a, 
+.logo a, 
+.profileMode .subtitle a,
+.post-entry,
+.post-entry .entry-header h2,
+.button,
+.post-tags a,
+.toc details summary,
+.toc a {
+    transition: all 0.25s ease-in-out !important;
+}
+
+/* 2. Σταθερός χρωματισμός (Κεχριμπάρι) */
+.social-icons a, 
+.menu a,
+.post-tags a,
+.toc details summary,
+.toc a {
+    color: #FFC107 !important;
+}
+
+/* 3. Συμπεριφορά Hover (Μετάβαση σε λευκό) */
+.social-icons a:hover, 
+.menu a:hover,
+.post-tags a:hover,
+.toc details summary:hover,
+.toc a:hover {
+    color: #ffffff !important;
+}
+
+/* 4. Συμπεριφορά Hover (Μετάβαση σε κεχριμπάρι) */
+.logo a:hover, .profileMode .subtitle a:hover {
+    color: #FFC107 !important;
+}
+
+strong {
+    color: #FFC107 !important;
+}
+
+/* 5. Μορφοποίηση Κεντρικών Κουμπιών Αρχικής */
+.button {
+    background-color: transparent !important;
+    border: 1px solid #FFC107 !important;
+    color: #FFC107 !important;
+}
+
+.button:hover {
+    border: 1px solid #ffffff !important;
+    color: #ffffff !important;
+}
+
+code {
+    color: #FFC107 !important;
+    background-color: rgba(255, 193, 7, 0.1) !important;
+    border-radius: 4px;
+    padding: 2px 4px;
+}
+
+/* 6. Μορφοποίηση Ενότητας Projects και Άρθρων (Τίτλοι & Περιεχόμενο) */
+.page-header h1, 
+.post-title {
+    color: #FFC107 !important;
+}
+
+.post-entry {
+    background-color: transparent !important;
+    border: 1px solid #FFC107 !important;
+}
+
+.post-entry:hover {
+    border: 1px solid #ffffff !important;
+}
+
+.post-entry:hover .entry-header h2 {
+    color: #FFC107 !important;
+}
+
+.post-tags a {
+    background-color: transparent !important;
+}
+
+/* 7. Μορφοποίηση Πίνακα Περιεχομένων (Table of Contents - TOC) */
+.toc {
+    background-color: transparent !important;
+    border: 1px solid #FFC107 !important;
+}
+
+/* 8. Ορισμός Κινηματικής Εισόδου Σελίδας */
+@keyframes fadeSlideIn {
+    0% { opacity: 0; transform: translateY(12px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.main {
+    animation: fadeSlideIn 0.4s ease-out forwards;
+}
+
+/* 9. Απόκρυψη Μεταδεδομένων (Ημερομηνία, Συγγραφέας, Χρόνος Ανάγνωσης) */
+.entry-footer, .post-meta {
+    display: none !important;
+}
+</style>
+{{ end }}
