@@ -27,9 +27,6 @@ apple_touch_icon = "/apple-touch-icon.png"
 # Homepage profile configuration
 [params.profileMode]
 enabled = true
-# Homepage profile configuration
-[params.profileMode]
-enabled = true
 title = "BSc Candidate in Computer Engineering & Informatics<br>University of Patras"
 subtitle = "Specializing in Hardware-Software Integration, Embedded Systems, and Low-Level Architecture (*C, C++, [RISC-V](https://riscv.org/)*).<br>Actively seeking an industry internship for **Summer 2027**."
 
