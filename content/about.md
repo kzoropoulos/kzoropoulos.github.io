@@ -1,6 +1,8 @@
 ---
 title: "About me"
 draft: false
+cover:
+    image: "/dark1.png"
 ---
 
 Hello, I'm Kostas! I am an undergraduate Computer Engineering (CEID) student at the University of Patras.

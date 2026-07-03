@@ -28,6 +28,14 @@ theme = 'PaperMod'
 [[params.socialIcons]]
     name = "linkedin"
     url = "https://linkedin.com/in/kostas-zoropoulos"
+    
+[[params.socialIcons]]
+    name = "email"
+    url = "mailto:kostaszoropoulos@gmail.com"
+
+[[params.socialIcons]]
+    name = "phone"
+    url = "tel:+306988633078"
 
 [languages]
     [languages.en]
