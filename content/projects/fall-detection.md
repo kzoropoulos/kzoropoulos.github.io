@@ -2,7 +2,9 @@
 title: "mmWave Fall Detection System"
 description: "A commercial-grade fall detection system for the elderly using mmWave sensors and ESP32 microcontrollers."
 date: 2026-07-01
+draft: false
 tags: ["C", "C++", "ESP32", "mmWave", "Hardware Integration"]
+keywords: ["C", "C++", "ESP32", "mmWave", "Hardware Integration", "Embedded Systems", "Signal Processing", "Radar Technology"]
 weight: 1
 ShowToc: true
 ---

@@ -1,7 +1,9 @@
 ---
 title: "About me"
+description: "Personal and professional profile of Konstantinos Zoropoulos, undergraduate Computer Engineering student at the University of Patras."
 draft: false
-backgroundImage: "/dark1.png"
+keywords: ["Konstantinos Zoropoulos", "Computer Engineering", "CEID", "University of Patras", "Software Engineering", "Hardware Integration", "Contact"]
+backgroundImage: "/dark1.jpg"
 ---
 
 Hello, I'm Kostas! I am an undergraduate Computer Engineering (CEID) student at the University of Patras.

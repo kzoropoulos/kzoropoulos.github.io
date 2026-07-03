@@ -1,91 +1,81 @@
-baseURL = 'https://kzoropoulos.github.io/'
-defaultContentLanguage = 'en'
-theme = 'PaperMod'
+# Base site configuration
+baseURL = "https://kzoropoulos.github.io/"
+languageCode = "en-us"
+title = "Konstantinos Zoropoulos | BSc Candidate"
+theme = "PaperMod"
 
+# Global theme parameters
 [params]
-    env = 'production'
-    backgroundImage = 'dark2.jpg'
-    ShowReadingTime = true
-    ShowBreadCrumbs = true
-    ShowCodeCopyButtons = true
-    math = true
-    defaultTheme = "dark"
-    disableThemeToggle = true
+env = "production"
+description = "Academic and engineering portfolio focusing on hardware-software integration."
+author = "Konstantinos Zoropoulos"
+backgroundImage = "dark2.jpg"
+ShowReadingTime = true
+ShowBreadCrumbs = true
+ShowCodeCopyButtons = true
+math = true
+defaultTheme = "dark"
+disableThemeToggle = true
 
+# Favicon assets
 [params.assets]
-    favicon = "/brain-circuit.png"
-    favicon16x16 = "/brain-circuit.png"
-    favicon32x32 = "/brain-circuit.png"
+favicon = "/favicon.ico"
+favicon16x16 = "/favicon-16x16.png"
+favicon32x32 = "/favicon-32x32.png"
+apple_touch_icon = "/apple-touch-icon.png"
+
+# Homepage profile configuration
+[params.profileMode]
+enabled = true
+title = "<span style='white-space: nowrap;'>BSc Candidate in Computer Engineering & Informatics</span><br>University of Patras"
+subtitle = "<span style='white-space: nowrap;'>Specializing in Hardware-Software Integration, Embedded Systems, and Low-Level Architecture (*C, C++, [RISC-V](https://riscv.org/)*).</span><br>Actively seeking an industry internship for **Summer 2027**."
+
+# Primary call-to-action buttons
+[[params.profileMode.buttons]]
+name = "View Projects"
+url = "/projects/"
+
+[[params.profileMode.buttons]]
+name = "Download CV"
+url = "/CV_Kostas_Zoropoulos.pdf"
+
+# Social links and contact information
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/kzoropoulos"
 
 [[params.socialIcons]]
-    name = "cv"
-    url = "/CV_Kostas_Zoropoulos.pdf"
+name = "linkedin"
+url = "https://linkedin.com/in/kostas-zoropoulos"
 
 [[params.socialIcons]]
-    name = "github"
-    url = "https://github.com/kzoropoulos"
+name = "email"
+url = "mailto:kostaszoropoulos@gmail.com"
 
 [[params.socialIcons]]
-    name = "linkedin"
-    url = "https://linkedin.com/in/kostas-zoropoulos"
-    
-[[params.socialIcons]]
-    name = "email"
-    url = "mailto:kostaszoropoulos@gmail.com"
+name = "phone"
+url = "tel:+306988633078"
 
-[[params.socialIcons]]
-    name = "phone"
-    url = "tel:+306988633078"
+# Main navigation menu
+[menu]
+  [[menu.main]]
+  identifier = "projects"
+  name = "Projects"
+  url = "/projects/"
+  weight = 10
 
-[languages]
-    [languages.en]
-        languageName = "English"
-        weight = 1
-        title = 'Kostantinos Zoropoulos | Computer Engineer'
-        
-        [languages.en.params]
-            description = 'Academic and engineering portfolio focusing on hardware-software integration.'
-            author = 'Kostas Zoropoulos'
-            
-            [languages.en.params.profileMode]
-                enabled = true
-                title = 'Undergraduate CEID Student at University of Patra'
-                subtitle = '''
-Focus on Hardware-Software Integration & Low-Level Programming (*C, C++, [RISC-V](https://riscv.org/)*)
+  [[menu.main]]
+  identifier = "academic"
+  name = "Academic Profile"
+  url = "/academic/"
+  weight = 20
 
-Seeking Industry Internship for **Summer 2027**
-'''
-                
-                [[languages.en.params.profileMode.buttons]]
-                    name = "Projects"
-                    url = "/projects/"
+  [[menu.main]]
+  identifier = "about"
+  name = "About me"
+  url = "/about/"
+  weight = 30
 
-                [[languages.en.params.profileMode.buttons]]
-                    name = "Academic Profile"
-                    url = "/academic/"
-                    
-                [[languages.en.params.profileMode.buttons]]
-                    name = "About me"
-                    url = "/about/"
-
-        [languages.en.menu]
-            [[languages.en.menu.main]]
-                identifier = "projects"
-                name = "Projects"
-                url = "/projects/"
-                weight = 10
-
-            [[languages.en.menu.main]]
-                identifier = "academic"
-                name = "Academic Profile"
-                url = "/academic/"
-                weight = 20
-                
-            [[languages.en.menu.main]]
-                identifier = "about"
-                name = "About me"
-                url = "/about/"
-                weight = 30
-
+# Markdown rendering settings
 [markup.goldmark.renderer]
-    unsafe = true
+unsafe = true

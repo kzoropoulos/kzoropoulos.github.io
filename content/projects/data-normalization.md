@@ -2,7 +2,9 @@
 title: "Educational Data Normalization Pipeline"
 description: "Data extraction and normalization pipeline for educational course data from multiple web sources."
 date: 2026-05-20
+draft: false
 tags: ["Python", "pandas", "BeautifulSoup", "API", "Data Engineering"]
+keywords: ["Python", "pandas", "Data Engineering", "Web Scraping", "Data Normalization", "API Integration"]
 weight: 2
 ShowToc: true
 ---

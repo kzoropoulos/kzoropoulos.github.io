@@ -2,7 +2,9 @@
 title: "Custom SQL Lexer and Parser"
 description: "Engineering of a custom lexical analyzer and parser utilizing Flex, Bison, and C."
 date: 2026-05-05
+draft: false
 tags: ["C", "Flex", "Bison", "Compilers", "SQL"]
+keywords: ["C", "Flex", "Bison", "Compilers", "Lexical Analysis", "Parsing", "Systems Programming"]
 weight: 3
 ShowToc: true
 ---

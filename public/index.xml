@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Kostantinos Zoropoulos | Computer Engineer</title>
+    <title>Konstantinos Zoropoulos | BSc Candidate</title>
     <link>http://localhost:1313/</link>
-    <description>Recent content on Kostantinos Zoropoulos | Computer Engineer</description>
+    <description>Recent content on Konstantinos Zoropoulos | BSc Candidate</description>
     <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Thu, 02 Jul 2026 02:09:12 +0300</lastBuildDate>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 01 Jul 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>mmWave Fall Detection System</title>
@@ -37,11 +37,18 @@
       <description>Design and implementation of a fully functional, battery-powered calculator built on the Arduino platform.</description>
     </item>
     <item>
-      <title>About</title>
+      <title>About me</title>
       <link>http://localhost:1313/about/</link>
-      <pubDate>Thu, 02 Jul 2026 02:09:12 +0300</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/about/</guid>
-      <description></description>
+      <description>Personal and professional profile of Konstantinos Zoropoulos, undergraduate Computer Engineering student at the University of Patras.</description>
+    </item>
+    <item>
+      <title>Academic Profile</title>
+      <link>http://localhost:1313/academic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/academic/</guid>
+      <description>Overview of academic background, coursework, and supplementary training.</description>
     </item>
   </channel>
 </rss>

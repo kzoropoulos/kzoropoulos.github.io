@@ -1,7 +1,9 @@
 ---
 title: "Academic Profile"
 description: "Overview of academic background, coursework, and supplementary training."
-backgroundImage: "/dark3.jpg"
+draft: false
+keywords: ["Academic Profile", "CEID", "University of Patras", "Computer Engineering", "Computer Architecture", "Data Structures", "CreaTech Project"]
+backgroundImage: "/dark1.jpg"
 ---
 
 ### Education
