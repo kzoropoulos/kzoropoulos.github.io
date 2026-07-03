@@ -1,5 +1,11 @@
-+++
-date = '2026-07-02T02:09:12+03:00'
-draft = true
-title = 'About'
-+++
+---
+title: "About me"
+draft: false
+---
+
+Hello, I'm Kostas! I am an undergraduate Computer Engineering (CEID) student at the University of Patras.
+
+You can reach me directly via the following contact details:
+
+* **Email:** [kostaszoropoulos@gmail.com](mailto:kostaszoropoulos@gmail.com)
+* **Phone:** [+30 6988633078](tel:+306988633078)
