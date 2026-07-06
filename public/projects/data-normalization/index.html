@@ -30,11 +30,19 @@
 </noscript>
 
 <style>
+ 
 body {
     background: url('/dark3.jpg') no-repeat center center fixed !important;
     background-size: cover !important;
 }
 
+ 
+.entry-footer, 
+.post-meta {
+    display: none !important;
+}
+
+ 
  
 .social-icons a, 
 .menu a, 
@@ -46,61 +54,40 @@ body {
 .post-tags a,
 .toc details summary,
 .toc a {
-    transition: all 0.25s ease-in-out !important;
+    transition: all 1s ease-in-out !important;
 }
 
  
-.social-icons a, 
-.menu a,
+.social-icons a,
 .post-tags a,
 .toc details summary,
-.toc a {
-    color: #FFC107 !important;
-}
-
- 
-.social-icons a:hover, 
-.menu a:hover,
-.post-tags a:hover,
-.toc details summary:hover,
-.toc a:hover {
-    color: #ffffff !important;
-}
-
- 
-.logo a:hover, .profileMode .subtitle a:hover {
-    color: #FFC107 !important;
-}
-
-strong {
-    color: #FFC107 !important;
-}
-
- 
-.button {
-    background-color: transparent !important;
-    border: 1px solid #FFC107 !important;
-    color: #FFC107 !important;
-}
-
-.button:hover {
-    border: 1px solid #ffffff !important;
-    color: #ffffff !important;
-}
-
-code {
-    color: #FFC107 !important;
-    background-color: rgba(255, 193, 7, 0.1) !important;
-    border-radius: 4px;
-    padding: 2px 4px;
-}
-
- 
+.toc a,
+strong,
 .page-header h1, 
 .post-title {
     color: #FFC107 !important;
 }
 
+ 
+.social-icons a:hover,
+.post-tags a:hover,
+.toc details summary:hover,
+.toc a:hover,
+.button:hover,
+.menu a:hover {
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+}
+
+ 
+.logo a:hover, 
+.profileMode .subtitle a:hover,
+.post-entry:hover .entry-header h2 {
+    color: #FFC107 !important;
+}
+
+ 
+ 
 .post-entry {
     background-color: transparent !important;
     border: 1px solid #FFC107 !important;
@@ -110,12 +97,23 @@ code {
     border: 1px solid #ffffff !important;
 }
 
-.post-entry:hover .entry-header h2 {
+.post-tags a {
+    background-color: transparent !important;
+}
+
+ 
+.button {
+    background-color: transparent !important;
+    border: 1px solid #FFC107 !important;
     color: #FFC107 !important;
 }
 
-.post-tags a {
-    background-color: transparent !important;
+ 
+code {
+    color: #FFC107 !important;
+    background-color: rgba(255, 193, 7, 0.1) !important;
+    border-radius: 4px;
+    padding: 2px 4px;
 }
 
  
@@ -125,18 +123,99 @@ code {
 }
 
  
+ 
+.header {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.header-nav {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+     
+    padding: 12px 2vw !important; 
+    box-sizing: border-box !important;
+    position: relative !important;
+}
+
+ 
+.logo {
+    margin: 0 !important;
+}
+
+ 
+#menu-toggle {
+    display: block !important;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+     
+    padding: 4px 0 4px 4px !important; 
+    margin: 0 !important; 
+}
+
+ 
+#menu-toggle svg {
+    width: 30px !important;
+    height: 30px !important;
+}
+
+ 
+.menu {
+    display: none !important;
+    flex-direction: column;
+    align-items: flex-end; 
+    position: absolute;
+    top: 60px; 
+     
+    right: 2vw !important;
+    background-color: transparent !important; 
+    border: none !important; 
+    box-shadow: none !important; 
+    padding: 0 !important;
+    z-index: 1000;
+}
+
+ 
+.menu a {
+    color: #FFC107 !important;
+    background-color: transparent !important;
+    border: 2px solid #FFC107 !important;
+    border-radius: 6px !important;
+    padding: 2px 6px !important;
+    margin: 4px 0 !important; 
+    display: inline-block !important;
+    line-height: 2 !important;
+    font-weight: bold !important;
+    text-align: center;
+}
+
+ 
+ 
 @keyframes fadeSlideIn {
     0% { opacity: 0; transform: translateY(12px); }
     100% { opacity: 1; transform: translateY(0); }
 }
 
 .main {
-    animation: fadeSlideIn 0.4s ease-out forwards;
+    animation: fadeSlideIn 0.5s ease-out forwards;
 }
 
  
-.entry-footer, .post-meta {
-    display: none !important;
+@keyframes menuSlideDown {
+    0% { opacity: 0; transform: translateY(-15px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+ 
+.menu.open {
+    display: flex !important;
+    animation: menuSlideDown 0.5s ease-out forwards;
 }
 </style>
 
@@ -220,6 +299,14 @@ code {
         <div class="logo">
             <a href="http://localhost:1313/" accesskey="h" title="Konstantinos Zoropoulos | BSc Candidate (Alt + H)">Konstantinos Zoropoulos | BSc Candidate</a>
         </div>
+        
+        <button id="menu-toggle" aria-label="Toggle Menu">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+                <line x1="3" y1="12" x2="21" y2="12" stroke="#FFC107" stroke-width="2"/>
+                <line x1="3" y1="6" x2="21" y2="6" stroke="#FFC107" stroke-width="2"/>
+                <line x1="3" y1="18" x2="21" y2="18" stroke="#FFC107" stroke-width="2"/>
+            </svg>
+        </button>
         <ul id="menu" class="menu">
             <li>
                 <a href="http://localhost:1313/projects/" title="Projects">
@@ -239,6 +326,19 @@ code {
         </ul>
     </nav>
 </header>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('menu');
+    
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('open');
+        });
+    }
+});
+</script>
 <main class="main">
 
 <article class="post-single">
@@ -306,7 +406,7 @@ code {
     </main>
     
 <footer class="footer">
-    <span>&copy; 2026 <a href="http://localhost:1313/">Kostantinos Zoropoulos</a>. All Rights Reserved.</span>
+    <span>&copy; 2026 <a href="http://localhost:1313/">Konstantinos Zoropoulos</a>. All Rights Reserved.</span>
 </footer>
 </body>
 

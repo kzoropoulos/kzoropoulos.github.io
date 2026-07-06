@@ -1,12 +1,24 @@
 {{ $bgImage := .Params.backgroundImage | default .Site.Params.backgroundImage }}
 {{ if $bgImage }}
 <style>
+/* ==========================================================================
+   1. BASE STYLES & BACKGROUND
+   ========================================================================== */
 body {
     background: url('{{ $bgImage }}') no-repeat center center fixed !important;
     background-size: cover !important;
 }
 
-/* 1. Καθολικός ορισμός ομαλής μετάβασης (Transition) */
+/* 1.1 Metadata Hiding */
+.entry-footer, 
+.post-meta {
+    display: none !important;
+}
+
+/* ==========================================================================
+   2. TYPOGRAPHY, COLORS & TRANSITIONS
+   ========================================================================== */
+/* 2.1 Global Smooth Transition Definition */
 .social-icons a, 
 .menu a, 
 .logo a, 
@@ -17,61 +29,42 @@ body {
 .post-tags a,
 .toc details summary,
 .toc a {
-    transition: all 0.25s ease-in-out !important;
+    transition: all 1s ease-in-out !important;
 }
 
-/* 2. Σταθερός χρωματισμός (Κεχριμπάρι) */
-.social-icons a, 
-.menu a,
+/* 2.2 Static Coloration (Amber) */
+.social-icons a,
 .post-tags a,
 .toc details summary,
-.toc a {
-    color: #FFC107 !important;
-}
-
-/* 3. Συμπεριφορά Hover (Μετάβαση σε λευκό) */
-.social-icons a:hover, 
-.menu a:hover,
-.post-tags a:hover,
-.toc details summary:hover,
-.toc a:hover {
-    color: #ffffff !important;
-}
-
-/* 4. Συμπεριφορά Hover (Μετάβαση σε κεχριμπάρι) */
-.logo a:hover, .profileMode .subtitle a:hover {
-    color: #FFC107 !important;
-}
-
-strong {
-    color: #FFC107 !important;
-}
-
-/* 5. Μορφοποίηση Κεντρικών Κουμπιών Αρχικής */
-.button {
-    background-color: transparent !important;
-    border: 1px solid #FFC107 !important;
-    color: #FFC107 !important;
-}
-
-.button:hover {
-    border: 1px solid #ffffff !important;
-    color: #ffffff !important;
-}
-
-code {
-    color: #FFC107 !important;
-    background-color: rgba(255, 193, 7, 0.1) !important;
-    border-radius: 4px;
-    padding: 2px 4px;
-}
-
-/* 6. Μορφοποίηση Ενότητας Projects και Άρθρων (Τίτλοι & Περιεχόμενο) */
+.toc a,
+strong,
 .page-header h1, 
 .post-title {
     color: #FFC107 !important;
 }
 
+/* 2.3 Hover Behavior (Transition to White) */
+.social-icons a:hover,
+.post-tags a:hover,
+.toc details summary:hover,
+.toc a:hover,
+.button:hover,
+.menu a:hover {
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+}
+
+/* 2.4 Hover Behavior (Transition to Amber) */
+.logo a:hover, 
+.profileMode .subtitle a:hover,
+.post-entry:hover .entry-header h2 {
+    color: #FFC107 !important;
+}
+
+/* ==========================================================================
+   3. UI COMPONENTS
+   ========================================================================== */
+/* 3.1 Projects and Posts Section Formatting */
 .post-entry {
     background-color: transparent !important;
     border: 1px solid #FFC107 !important;
@@ -81,33 +74,129 @@ code {
     border: 1px solid #ffffff !important;
 }
 
-.post-entry:hover .entry-header h2 {
-    color: #FFC107 !important;
-}
-
 .post-tags a {
     background-color: transparent !important;
 }
 
-/* 7. Μορφοποίηση Πίνακα Περιεχομένων (Table of Contents - TOC) */
+/* 3.2 Main Home Buttons Formatting */
+.button {
+    background-color: transparent !important;
+    border: 1px solid #FFC107 !important;
+    color: #FFC107 !important;
+}
+
+/* 3.3 Inline Code Formatting */
+code {
+    color: #FFC107 !important;
+    background-color: rgba(255, 193, 7, 0.1) !important;
+    border-radius: 4px;
+    padding: 2px 4px;
+}
+
+/* 3.4 Table of Contents (TOC) Formatting */
 .toc {
     background-color: transparent !important;
     border: 1px solid #FFC107 !important;
 }
 
-/* 8. Ορισμός Κινηματικής Εισόδου Σελίδας */
+/* ==========================================================================
+   4. HEADER & NAVIGATION MENU (DROPDOWN)
+   ========================================================================== */
+/* 4.1 Header Dynamic Layout (Full-Width Flexbox) */
+.header {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.header-nav {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    /* Using vw (viewport width) units ensures a proportional 2% margin at the edges, preventing contact with the device frame */
+    padding: 12px 2vw !important; 
+    box-sizing: border-box !important;
+    position: relative !important;
+}
+
+/* Cancellation of redundant margins for strict edge alignment */
+.logo {
+    margin: 0 !important;
+}
+
+/* 4.2 Hamburger Control Button Display and Alignment */
+#menu-toggle {
+    display: block !important;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    /* Padding definition: top, right (zero), bottom, left */
+    padding: 4px 0 4px 4px !important; 
+    margin: 0 !important; 
+}
+
+/* SVG Icon Dimensions Increase */
+#menu-toggle svg {
+    width: 30px !important;
+    height: 30px !important;
+}
+
+/* 4.3 Dropdown Menu Container Formatting */
+.menu {
+    display: none !important;
+    flex-direction: column;
+    align-items: flex-end; 
+    position: absolute;
+    top: 60px; 
+    /* Dropdown menu position adjustment based on new margins */
+    right: 2vw !important;
+    background-color: transparent !important; 
+    border: none !important; 
+    box-shadow: none !important; 
+    padding: 0 !important;
+    z-index: 1000;
+}
+
+/* Individual Menu Options (Buttons) Formatting */
+.menu a {
+    color: #FFC107 !important;
+    background-color: transparent !important;
+    border: 2px solid #FFC107 !important;
+    border-radius: 6px !important;
+    padding: 2px 6px !important;
+    margin: 4px 0 !important; 
+    display: inline-block !important;
+    line-height: 2 !important;
+    font-weight: bold !important;
+    text-align: center;
+}
+
+/* ==========================================================================
+   5. ANIMATIONS
+   ========================================================================== */
+/* 5.1 Page Entry Animation Definition */
 @keyframes fadeSlideIn {
     0% { opacity: 0; transform: translateY(12px); }
     100% { opacity: 1; transform: translateY(0); }
 }
 
 .main {
-    animation: fadeSlideIn 0.4s ease-out forwards;
+    animation: fadeSlideIn 0.5s ease-out forwards;
 }
 
-/* 9. Απόκρυψη Μεταδεδομένων (Ημερομηνία, Συγγραφέας, Χρόνος Ανάγνωσης) */
-.entry-footer, .post-meta {
-    display: none !important;
+/* 5.2 Top-Down Slide Animation Definition */
+@keyframes menuSlideDown {
+    0% { opacity: 0; transform: translateY(-15px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Menu Active State with Animation */
+.menu.open {
+    display: flex !important;
+    animation: menuSlideDown 0.5s ease-out forwards;
 }
 </style>
 {{ end }}
