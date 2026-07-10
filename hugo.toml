@@ -1,7 +1,7 @@
 # Base site configuration
 baseURL = "https://kzoropoulos.github.io/"
 languageCode = "en-us"
-title = "Konstantinos Zoropoulos | BSc Candidate"
+title = "Konstantinos Zoropoulos | MEng Candidate"
 theme = "PaperMod"
 
 # Global theme parameters
@@ -27,7 +27,7 @@ apple_touch_icon = "/apple-touch-icon.png"
 # Homepage profile configuration
 [params.profileMode]
 enabled = true
-title = "BSc Candidate in Computer Engineering & Informatics<br>University of Patras"
+title = "MEng Candidate in Computer Engineering & Informatics<br>University of Patras"
 subtitle = "Specializing in Hardware-Software Integration, Embedded Systems, and Low-Level Architecture (*C, C++, [RISC-V](https://riscv.org/)*).<br>Actively seeking an industry internship for **Summer 2027**."
 
 # Primary call-to-action buttons
