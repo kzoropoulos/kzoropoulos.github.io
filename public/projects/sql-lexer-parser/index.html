@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>mySQLq Lexical and Syntax Analyzer | Konstantinos Zoropoulos | MEng Candidate</title>
+<meta name="keywords" content="C, Flex, Bison, Compilers, Lexical Analysis, Parsing, Systems Programming">
+<meta name="description" content="Analytical overview, technical specifications, and description for the custom SQL lexer and parser project.">
+<meta name="author" content="Konstantinos Zoropoulos">
+<link rel="canonical" href="http://localhost:1313/projects/sql-lexer-parser/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.cd9298b33628769aa1bc1acebbbfd7aa11ce81dfe03484d479e1907760249a1d.css" integrity="sha256-zZKYszYodpqhvBrOu7/XqhHOgd/gNITUeeGQd2Akmh0=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/sql-lexer-parser/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+
+<style>
+ 
+body {
+    background: url('/dark3.jpg') no-repeat center center fixed !important;
+    background-size: cover !important;
+}
+
+ 
+.entry-footer, 
+.post-meta {
+    display: none !important;
+}
+
+ 
+ 
+.social-icons a, 
+.menu a, 
+.logo a, 
+.profileMode .subtitle a,
+.post-entry,
+.post-entry .entry-header h2,
+.button,
+.post-tags a,
+.toc details summary,
+.toc a {
+    transition: all 1s ease-in-out !important;
+}
+
+ 
+.social-icons a,
+.post-tags a,
+.toc details summary,
+.toc a,
+strong,
+.page-header h1, 
+.post-title {
+    color: #FFC107 !important;
+}
+
+ 
+.social-icons a:hover,
+.post-tags a:hover,
+.toc details summary:hover,
+.toc a:hover,
+.button:hover,
+.menu a:hover {
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+}
+
+ 
+.logo a:hover, 
+.profileMode .subtitle a:hover,
+.post-entry:hover .entry-header h2 {
+    color: #FFC107 !important;
+}
+
+ 
+ 
+.post-entry {
+    background-color: transparent !important;
+    border: 1px solid #FFC107 !important;
+}
+
+.post-entry:hover {
+    border: 1px solid #ffffff !important;
+}
+
+.post-tags a {
+    background-color: transparent !important;
+}
+
+ 
+.button {
+    background-color: transparent !important;
+    border: 1px solid #FFC107 !important;
+    color: #FFC107 !important;
+}
+
+ 
+code {
+    color: #FFC107 !important;
+    background-color: rgba(255, 193, 7, 0.1) !important;
+    border-radius: 4px;
+    padding: 2px 4px;
+}
+
+ 
+.toc {
+    background-color: transparent !important;
+    border: 1px solid #FFC107 !important;
+}
+
+ 
+ 
+.header {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.header-nav {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+     
+    padding: 12px 2vw !important; 
+    box-sizing: border-box !important;
+    position: relative !important;
+}
+
+ 
+.logo {
+    margin: 0 !important;
+}
+
+ 
+#menu-toggle {
+    display: block !important;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+     
+    padding: 4px 0 4px 4px !important; 
+    margin: 0 !important; 
+}
+
+ 
+#menu-toggle svg {
+    width: 30px !important;
+    height: 30px !important;
+}
+
+ 
+.menu {
+    display: none !important;
+    flex-direction: column;
+    align-items: flex-end; 
+    position: absolute;
+    top: 60px; 
+     
+    right: 2vw !important;
+    background-color: transparent !important; 
+    border: none !important; 
+    box-shadow: none !important; 
+    padding: 0 !important;
+    z-index: 1000;
+}
+
+ 
+.menu a {
+    color: #FFC107 !important;
+    background-color: transparent !important;
+    border: 2px solid #FFC107 !important;
+    border-radius: 6px !important;
+    padding: 2px 6px !important;
+    margin: 4px 0 !important; 
+    display: inline-block !important;
+    line-height: 2 !important;
+    font-weight: bold !important;
+    text-align: center;
+}
+
+ 
+ 
+@keyframes fadeSlideIn {
+    0% { opacity: 0; transform: translateY(12px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.main {
+    animation: fadeSlideIn 0.5s ease-out forwards;
+}
+
+ 
+@keyframes menuSlideDown {
+    0% { opacity: 0; transform: translateY(-15px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+ 
+.menu.open {
+    display: flex !important;
+    animation: menuSlideDown 0.5s ease-out forwards;
+}
+</style>
+
+<meta property="og:url" content="http://localhost:1313/projects/sql-lexer-parser/">
+  <meta property="og:site_name" content="Konstantinos Zoropoulos | MEng Candidate">
+  <meta property="og:title" content="mySQLq Lexical and Syntax Analyzer">
+  <meta property="og:description" content="Analytical overview, technical specifications, and description for the custom SQL lexer and parser project.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2026-05-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-05-05T00:00:00+00:00">
+    <meta property="article:tag" content="C">
+    <meta property="article:tag" content="Flex">
+    <meta property="article:tag" content="Bison">
+    <meta property="article:tag" content="Compilers">
+    <meta property="article:tag" content="SQL">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="mySQLq Lexical and Syntax Analyzer">
+  <meta name="twitter:description" content="Analytical overview, technical specifications, and description for the custom SQL lexer and parser project.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "mySQLq Lexical and Syntax Analyzer",
+      "item": "http://localhost:1313/projects/sql-lexer-parser/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "mySQLq Lexical and Syntax Analyzer",
+  "name": "mySQLq Lexical and Syntax Analyzer",
+  "description": "Analytical overview, technical specifications, and description for the custom SQL lexer and parser project.",
+  "keywords": [
+    "C", "Flex", "Bison", "Compilers", "Lexical Analysis", "Parsing", "Systems Programming"
+  ],
+  "articleBody": "Overview The repository contains the implementation of a compiler front-end, engineering a custom lexical analyzer and parser utilizing the combination of Flex, Bison, and C. It processes mySQLq, a domain-specific pseudo-language based on SQL. The project was developed as a laboratory assignment for the “Principles of Programming Languages \u0026 Compilers” course at the Computer Engineering and Informatics Department, University of Patras. The core architecture utilizes Flex for token generation (Lexical Analysis) and Bison for syntactic structure validation (Parsing). This is augmented with a custom Symbol Table written in C to enforce strict semantic rules and scope resolution.\nSystem Architecture The architecture is strictly modular and comprises three distinct phases:\nLexical Analysis (askisi.l): Employs deterministic finite automata (DFA) generated by Flex to stream characters into discrete tokens such as keywords, identifiers, literals, and operators. Comments and whitespaces are explicitly discarded during this phase. Syntax Analysis (askisi.y): Implements a Context-Free Grammar (CFG) in Backus-Naur Form (BNF) to design strict grammatical rules for the accurate interpretation and robust error handling of SQL instructions. Bison generates a parser that verifies the structural correctness of the mySQLq statements. Semantic Analysis (symtable.c): A dynamically allocated Symbol Table data structure maintains the state of declared entities, including tables, columns, types, and aliases. It is invoked during parsing reductions to perform type-checking and scope validation. Supported Features \u0026 Constraints 1. Syntactic Constructs Supports CREATE TABLE and SELECT statement constructs. Enforces strict sequence clauses (SELECT -\u003e FROM -\u003e WHERE -\u003e GROUP BY -\u003e ORDER BY -\u003e LIMIT). Keywords are case-insensitive, while identifiers are strictly case-sensitive. Requires a mandatory semicolon (;) at the end of each statement for termination. 2. Semantic Validation Entity Resolution: Verifies table and column existence prior to reference and prevents duplicate declarations within the same scope. Type System: Enforces strong typing in the WHERE clause. INT evaluates against integer literals, FLOAT evaluates against integer or floating-point literals, and VARCHAR(n) evaluates against string literals. Relational Algebra: Validates JOIN ... ON ... constraints across multiple tables, verifying that the compared tables and columns exist. Aliasing: Resolves table aliases (AS) and validates aliased column references (e.g., alias.column_name). System Requirements To compile and execute the parser, the required toolchain includes:\nC Compiler: gcc (GNU Compiler Collection). Lexer Generator: flex. Parser Generator: bison. ",
+  "wordCount" : "372",
+  "inLanguage": "en",
+  "datePublished": "2026-05-05T00:00:00Z",
+  "dateModified": "2026-05-05T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Konstantinos Zoropoulos"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/sql-lexer-parser/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Konstantinos Zoropoulos | MEng Candidate",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Konstantinos Zoropoulos | MEng Candidate (Alt + H)">Konstantinos Zoropoulos | MEng Candidate</a>
+        </div>
+        
+        <button id="menu-toggle" aria-label="Toggle Menu">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+                <line x1="3" y1="12" x2="21" y2="12" stroke="#FFC107" stroke-width="2"/>
+                <line x1="3" y1="6" x2="21" y2="6" stroke="#FFC107" stroke-width="2"/>
+                <line x1="3" y1="18" x2="21" y2="18" stroke="#FFC107" stroke-width="2"/>
+            </svg>
+        </button>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academic/" title="Academic Profile">
+                    <span>Academic Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="About me">
+                    <span>About me</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('menu');
+    
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('open');
+        });
+    }
+});
+</script>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/projects/">Projects</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
+    <h1 class="post-title entry-hint-parent">
+      mySQLq Lexical and Syntax Analyzer
+    </h1>
+    <div class="post-description">
+      Analytical overview, technical specifications, and description for the custom SQL lexer and parser project.
+    </div>
+    <div class="post-meta">
+
+<span title='2026-05-05 00:00:00 +0000 UTC'>May 5, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Konstantinos Zoropoulos</span>
+
+</div>
+  </header> <details class="toc" >
+    <summary accesskey="c" title="(Alt + C)">
+        <span class="title">Table of Contents</span>
+    </summary>
+
+    <div class="inner"><ul>
+            <li>
+                <a href="#overview" aria-label="Overview">Overview</a></li>
+            <li>
+                <a href="#system-architecture" aria-label="System Architecture">System Architecture</a></li>
+            <li>
+                <a href="#supported-features--constraints" aria-label="Supported Features &amp; Constraints">Supported Features &amp; Constraints</a><ul>
+                    
+            <li>
+                <a href="#1-syntactic-constructs" aria-label="1. Syntactic Constructs">1. Syntactic Constructs</a></li>
+            <li>
+                <a href="#2-semantic-validation" aria-label="2. Semantic Validation">2. Semantic Validation</a></li></ul>
+            </li>
+            <li>
+                <a href="#system-requirements" aria-label="System Requirements">System Requirements</a>
+            </li>
+        </ul>
+    </div>
+</details>
+
+  <div class="post-content md-content"><h2 id="overview">Overview<a hidden class="anchor" aria-hidden="true" href="#overview">#</a></h2>
+<p>The repository contains the implementation of a compiler front-end, engineering a custom lexical analyzer and parser utilizing the combination of Flex, Bison, and C. It processes <strong>mySQLq</strong>, a domain-specific pseudo-language based on SQL. The project was developed as a laboratory assignment for the &ldquo;Principles of Programming Languages &amp; Compilers&rdquo; course at the Computer Engineering and Informatics Department, University of Patras. The core architecture utilizes Flex for token generation (Lexical Analysis) and Bison for syntactic structure validation (Parsing). This is augmented with a custom Symbol Table written in C to enforce strict semantic rules and scope resolution.</p>
+<h2 id="system-architecture">System Architecture<a hidden class="anchor" aria-hidden="true" href="#system-architecture">#</a></h2>
+<p>The architecture is strictly modular and comprises three distinct phases:</p>
+<ul>
+<li><strong>Lexical Analysis (<code>askisi.l</code>)</strong>: Employs deterministic finite automata (DFA) generated by Flex to stream characters into discrete tokens such as keywords, identifiers, literals, and operators. Comments and whitespaces are explicitly discarded during this phase.</li>
+<li><strong>Syntax Analysis (<code>askisi.y</code>)</strong>: Implements a Context-Free Grammar (CFG) in Backus-Naur Form (BNF) to design strict grammatical rules for the accurate interpretation and robust error handling of SQL instructions. Bison generates a parser that verifies the structural correctness of the mySQLq statements.</li>
+<li><strong>Semantic Analysis (<code>symtable.c</code>)</strong>: A dynamically allocated Symbol Table data structure maintains the state of declared entities, including tables, columns, types, and aliases. It is invoked during parsing reductions to perform type-checking and scope validation.</li>
+</ul>
+<h2 id="supported-features--constraints">Supported Features &amp; Constraints<a hidden class="anchor" aria-hidden="true" href="#supported-features--constraints">#</a></h2>
+<h3 id="1-syntactic-constructs">1. Syntactic Constructs<a hidden class="anchor" aria-hidden="true" href="#1-syntactic-constructs">#</a></h3>
+<ul>
+<li>Supports <code>CREATE TABLE</code> and <code>SELECT</code> statement constructs.</li>
+<li>Enforces strict sequence clauses (<code>SELECT</code> -&gt; <code>FROM</code> -&gt; <code>WHERE</code> -&gt; <code>GROUP BY</code> -&gt; <code>ORDER BY</code> -&gt; <code>LIMIT</code>).</li>
+<li>Keywords are case-insensitive, while identifiers are strictly case-sensitive.</li>
+<li>Requires a mandatory semicolon (<code>;</code>) at the end of each statement for termination.</li>
+</ul>
+<h3 id="2-semantic-validation">2. Semantic Validation<a hidden class="anchor" aria-hidden="true" href="#2-semantic-validation">#</a></h3>
+<ul>
+<li><strong>Entity Resolution</strong>: Verifies table and column existence prior to reference and prevents duplicate declarations within the same scope.</li>
+<li><strong>Type System</strong>: Enforces strong typing in the <code>WHERE</code> clause. <code>INT</code> evaluates against integer literals, <code>FLOAT</code> evaluates against integer or floating-point literals, and <code>VARCHAR(n)</code> evaluates against string literals.</li>
+<li><strong>Relational Algebra</strong>: Validates <code>JOIN ... ON ...</code> constraints across multiple tables, verifying that the compared tables and columns exist.</li>
+<li><strong>Aliasing</strong>: Resolves table aliases (<code>AS</code>) and validates aliased column references (e.g., <code>alias.column_name</code>).</li>
+</ul>
+<h2 id="system-requirements">System Requirements<a hidden class="anchor" aria-hidden="true" href="#system-requirements">#</a></h2>
+<p>To compile and execute the parser, the required toolchain includes:</p>
+<ul>
+<li><strong>C Compiler</strong>: <code>gcc</code> (GNU Compiler Collection).</li>
+<li><strong>Lexer Generator</strong>: <code>flex</code>.</li>
+<li><strong>Parser Generator</strong>: <code>bison</code>.</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/c/">C</a></li>
+      <li><a href="http://localhost:1313/tags/flex/">Flex</a></li>
+      <li><a href="http://localhost:1313/tags/bison/">Bison</a></li>
+      <li><a href="http://localhost:1313/tags/compilers/">Compilers</a></li>
+      <li><a href="http://localhost:1313/tags/sql/">SQL</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2026 <a href="http://localhost:1313/">Konstantinos Zoropoulos</a>. All Rights Reserved.</span>
+</footer>
+</body>
+
+</html>

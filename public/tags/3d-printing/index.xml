@@ -6,14 +6,14 @@
     <description>Recent content in 3D Printing on Konstantinos Zoropoulos | MEng Candidate</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jul 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/3d-printing/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Modular Arithmetic Calculator</title>
+      <title>Low-Profile Embedded Calculator</title>
       <link>http://localhost:1313/projects/calculator/</link>
-      <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 18 Jul 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/projects/calculator/</guid>
-      <description>Design and implementation of a fully functional, battery-powered calculator built on the Arduino platform.</description>
+      <description>Design and implementation of a fully functional, battery-powered embedded calculator built on the Waveshare RP2040 Plus platform.</description>
     </item>
   </channel>
 </rss>

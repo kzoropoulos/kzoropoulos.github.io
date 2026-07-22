@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Tkinter | Konstantinos Zoropoulos | MEng Candidate</title>
+<meta name="keywords" content="">
+<meta name="description" content="Academic and engineering portfolio focusing on hardware-software integration.">
+<meta name="author" content="Konstantinos Zoropoulos">
+<link rel="canonical" href="http://localhost:1313/tags/tkinter/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.cd9298b33628769aa1bc1acebbbfd7aa11ce81dfe03484d479e1907760249a1d.css" integrity="sha256-zZKYszYodpqhvBrOu7/XqhHOgd/gNITUeeGQd2Akmh0=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/tags/tkinter/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/tags/tkinter/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+
+<style>
+ 
+body {
+    background: url('dark2.jpg') no-repeat center center fixed !important;
+    background-size: cover !important;
+}
+
+ 
+.entry-footer, 
+.post-meta {
+    display: none !important;
+}
+
+ 
+ 
+.social-icons a, 
+.menu a, 
+.logo a, 
+.profileMode .subtitle a,
+.post-entry,
+.post-entry .entry-header h2,
+.button,
+.post-tags a,
+.toc details summary,
+.toc a {
+    transition: all 1s ease-in-out !important;
+}
+
+ 
+.social-icons a,
+.post-tags a,
+.toc details summary,
+.toc a,
+strong,
+.page-header h1, 
+.post-title {
+    color: #FFC107 !important;
+}
+
+ 
+.social-icons a:hover,
+.post-tags a:hover,
+.toc details summary:hover,
+.toc a:hover,
+.button:hover,
+.menu a:hover {
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+}
+
+ 
+.logo a:hover, 
+.profileMode .subtitle a:hover,
+.post-entry:hover .entry-header h2 {
+    color: #FFC107 !important;
+}
+
+ 
+ 
+.post-entry {
+    background-color: transparent !important;
+    border: 1px solid #FFC107 !important;
+}
+
+.post-entry:hover {
+    border: 1px solid #ffffff !important;
+}
+
+.post-tags a {
+    background-color: transparent !important;
+}
+
+ 
+.button {
+    background-color: transparent !important;
+    border: 1px solid #FFC107 !important;
+    color: #FFC107 !important;
+}
+
+ 
+code {
+    color: #FFC107 !important;
+    background-color: rgba(255, 193, 7, 0.1) !important;
+    border-radius: 4px;
+    padding: 2px 4px;
+}
+
+ 
+.toc {
+    background-color: transparent !important;
+    border: 1px solid #FFC107 !important;
+}
+
+ 
+ 
+.header {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.header-nav {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+     
+    padding: 12px 2vw !important; 
+    box-sizing: border-box !important;
+    position: relative !important;
+}
+
+ 
+.logo {
+    margin: 0 !important;
+}
+
+ 
+#menu-toggle {
+    display: block !important;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+     
+    padding: 4px 0 4px 4px !important; 
+    margin: 0 !important; 
+}
+
+ 
+#menu-toggle svg {
+    width: 30px !important;
+    height: 30px !important;
+}
+
+ 
+.menu {
+    display: none !important;
+    flex-direction: column;
+    align-items: flex-end; 
+    position: absolute;
+    top: 60px; 
+     
+    right: 2vw !important;
+    background-color: transparent !important; 
+    border: none !important; 
+    box-shadow: none !important; 
+    padding: 0 !important;
+    z-index: 1000;
+}
+
+ 
+.menu a {
+    color: #FFC107 !important;
+    background-color: transparent !important;
+    border: 2px solid #FFC107 !important;
+    border-radius: 6px !important;
+    padding: 2px 6px !important;
+    margin: 4px 0 !important; 
+    display: inline-block !important;
+    line-height: 2 !important;
+    font-weight: bold !important;
+    text-align: center;
+}
+
+ 
+ 
+@keyframes fadeSlideIn {
+    0% { opacity: 0; transform: translateY(12px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.main {
+    animation: fadeSlideIn 0.5s ease-out forwards;
+}
+
+ 
+@keyframes menuSlideDown {
+    0% { opacity: 0; transform: translateY(-15px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+ 
+.menu.open {
+    display: flex !important;
+    animation: menuSlideDown 0.5s ease-out forwards;
+}
+</style>
+
+<meta property="og:url" content="http://localhost:1313/tags/tkinter/">
+  <meta property="og:site_name" content="Konstantinos Zoropoulos | MEng Candidate">
+  <meta property="og:title" content="Tkinter">
+  <meta property="og:description" content="Academic and engineering portfolio focusing on hardware-software integration.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Tkinter">
+  <meta name="twitter:description" content="Academic and engineering portfolio focusing on hardware-software integration.">
+
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Konstantinos Zoropoulos | MEng Candidate (Alt + H)">Konstantinos Zoropoulos | MEng Candidate</a>
+        </div>
+        
+        <button id="menu-toggle" aria-label="Toggle Menu">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+                <line x1="3" y1="12" x2="21" y2="12" stroke="#FFC107" stroke-width="2"/>
+                <line x1="3" y1="6" x2="21" y2="6" stroke="#FFC107" stroke-width="2"/>
+                <line x1="3" y1="18" x2="21" y2="18" stroke="#FFC107" stroke-width="2"/>
+            </svg>
+        </button>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academic/" title="Academic Profile">
+                    <span>Academic Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="About me">
+                    <span>About me</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('menu');
+    
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('open');
+        });
+    }
+});
+</script>
+<main class="main"> 
+<header class="page-header"><nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/tags/">Tags</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
+  <h1>
+    Tkinter
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Data Analysis App
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Overview The project is a Python-based hybrid data collection system designed to aggregate educational course data from multiple internet sources. It features an automated normalization pipeline, a Graphical User Interface (GUI), and a recommendation engine that utilizes a composite scoring algorithm to evaluate and suggest courses based on user-defined parameters. Ultimately, it generates a cohesive, structured dataset ready for algorithmic analysis and querying.
+Technical Implementation &amp; Features Data Extraction &amp; Integration The system relies on a hybrid data integration approach, retrieving data from 6 independent sources through RESTful API requests and DOM parsing utilizing BeautifulSoup.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-05-20 00:00:00 +0000 UTC'>May 20, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Konstantinos Zoropoulos</span></footer>
+  <a class="entry-link" aria-label="post link to Data Analysis App" href="http://localhost:1313/projects/data-analysis-app/"></a>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2026 <a href="http://localhost:1313/">Konstantinos Zoropoulos</a>. All Rights Reserved.</span>
+</footer>
+</body>
+
+</html>

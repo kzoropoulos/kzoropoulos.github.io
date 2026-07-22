@@ -302,29 +302,30 @@ document.addEventListener('DOMContentLoaded', function () {
     </h2>
   </header>
   <div class="entry-content">
-    <p>Overview Development of a non-intrusive fall detection architecture utilizing millimeter-wave (mmWave) radar technology. The system processes spatial and motion data in real-time to identify sudden altitude drops characteristic of falls.
-Technical Implementation Hardware: ESP32 Microcontroller, mmWave Radar Sensor. Software: C/C&#43;&#43; for low-level sensor interfacing and signal processing. Architecture: Real-time data acquisition, threshold-based trigger mechanisms, and network communication modules for alert dispatch. Commercial Application Designed with a focus on privacy (no optical cameras) and continuous operation, targeting commercial deployment in elderly care environments.
-</p>
+    <p>Overview Development of a comprehensive, non-intrusive fall detection architecture utilizing millimeter-wave (mmWave) radar technology. The system processes spatial and micro-motion data in real-time to map 3D posture and identify sudden altitude drops (immobilization on the floor) characteristic of falls. Designed for elderly care, it ensures continuous operation without compromising user privacy through the use of optical cameras.
+System Architecture The architecture is divided into a decentralized network of ultra-low-power room sensors and a resilient central gateway.
+...</p>
   </div>
   <footer class="entry-footer">
 
-<span title='2026-07-01 00:00:00 +0000 UTC'>July 1, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Konstantinos Zoropoulos</span></footer>
+<span title='2026-07-01 00:00:00 +0000 UTC'>July 1, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Konstantinos Zoropoulos</span></footer>
   <a class="entry-link" aria-label="post link to mmWave Fall Detection System" href="http://localhost:1313/projects/fall-detection/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Modular Arithmetic Calculator
+    <h2 class="entry-hint-parent">Low-Profile Embedded Calculator
     </h2>
   </header>
   <div class="entry-content">
-    <p>Overview Designed a fully functional, battery-powered calculator built on the Arduino microcontroller platform.
-Technical Implementation Hardware &amp; Prototyping: Executed custom 3D-printing for the chassis. Electronics: Manual hardware wiring to interface components. User Experience: Integration of a modular user interface for streamlined operation. </p>
+    <p>Overview Designed and engineered a fully functional, battery-powered low-profile calculator. The system utilizes a robust, custom-designed architecture centered around the Waveshare RP2040 Plus microcontroller module. The project seamlessly integrates this custom electronic hardware with a low-tolerance 3D-printed enclosure and C-based firmware.
+Technical Implementation Hardware &amp; Electronics Core Microcontroller: Integrated the Waveshare RP2040 Plus, featuring an RP2040 dual-core Arm Cortex-M0&#43; processor (up to 133 MHz), 264kB SRAM, and 2MB QSPI flash. PCB Design: Engineered custom electronic hardware schematics and PCB layouts using KiCad 10.0 electronic design automation (EDA) software. The hardware repository explicitly includes the generated Gerber manufacturing files. Display Interface: Interfaced a Waveshare 2.0 LCD directly to the MCU via hardware SPI. The data routing establishes direct connections for MOSI, SCK, Chip Select (TFT_CS), Data/Command (TFT_DC), Reset (TFT_RST), and Backlight Control (TFT_BL). Input Matrix: Engineered a direct-GPIO 5x4 key matrix comprising 20 tactile push-button switches. The matrix utilizes multiplexed row (ROW1 through ROW5) and column (COL1 through COL4) lines to maximize GPIO efficiency. The matrix is hardware-debounced and protected against ghosting via 1N4148W fast switching diodes (SOD-123 packages) on every switch. Power Subsystem: Integrated a 3.7V 550mAh Lithium Polymer (LiPo) battery cell, managed locally by an SPDT slide power switch. Firmware &amp; Software Language &amp; Toolchain: Developed the firmware entirely in pure C, utilizing the official toolchain to achieve hardware-level optimization and concurrent execution. Operating System: Utilized FreeRTOS for concurrent task scheduling. Independent tasks are configured to handle operations such as SPI driver communication. User Experience: Built a modular and streamlined graphical user interface rendered via the LVGL (Light and Versatile Graphics Library) framework. Low-Level Integration: Configured custom SPI driver integrations and utilized hardware-level optimization for display and input communication. Power Management: Implemented sleep state APIs to allow the microcontroller to enter low-power modes following predefined periods of inactivity. Mechanical Design Enclosure: Engineered and executed a custom, low-tolerance 3D-printed chassis to securely house the physical hardware components. The 3D computer-aided design (CAD) models are maintained within the hardware domain of the project repository. Open Source Licensing To maintain organizational clarity, the repository’s licensing model is compartmentalized based on the medium of the components.
+...</p>
   </div>
   <footer class="entry-footer">
 
-<span title='2025-12-10 00:00:00 +0000 UTC'>December 10, 2025</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Konstantinos Zoropoulos</span></footer>
-  <a class="entry-link" aria-label="post link to Modular Arithmetic Calculator" href="http://localhost:1313/projects/calculator/"></a>
+<span title='2026-07-18 00:00:00 +0000 UTC'>July 18, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Konstantinos Zoropoulos</span></footer>
+  <a class="entry-link" aria-label="post link to Low-Profile Embedded Calculator" href="http://localhost:1313/projects/calculator/"></a>
 </article>
     </main>
     

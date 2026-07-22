@@ -9,11 +9,11 @@
     <lastBuildDate>Tue, 05 May 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/compilers/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Custom SQL Lexer and Parser</title>
-      <link>http://localhost:1313/projects/sql-parser/</link>
+      <title>mySQLq Lexical and Syntax Analyzer</title>
+      <link>http://localhost:1313/projects/sql-lexer-parser/</link>
       <pubDate>Tue, 05 May 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/projects/sql-parser/</guid>
-      <description>Engineering of a custom lexical analyzer and parser utilizing Flex, Bison, and C.</description>
+      <guid>http://localhost:1313/projects/sql-lexer-parser/</guid>
+      <description>Analytical overview, technical specifications, and description for the custom SQL lexer and parser project.</description>
     </item>
   </channel>
 </rss>

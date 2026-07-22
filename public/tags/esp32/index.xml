@@ -13,7 +13,7 @@
       <link>http://localhost:1313/projects/fall-detection/</link>
       <pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/projects/fall-detection/</guid>
-      <description>A commercial-grade fall detection system for the elderly using mmWave sensors and ESP32 microcontrollers.</description>
+      <description>A commercial-grade fall detection system for the elderly using mmWave sensors, PIR, Zigbee, and ESP32 microcontrollers.</description>
     </item>
   </channel>
 </rss>

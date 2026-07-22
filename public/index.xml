@@ -6,35 +6,35 @@
     <description>Recent content on Konstantinos Zoropoulos | MEng Candidate</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jul 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>mmWave Fall Detection System</title>
       <link>http://localhost:1313/projects/fall-detection/</link>
       <pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/projects/fall-detection/</guid>
-      <description>A commercial-grade fall detection system for the elderly using mmWave sensors and ESP32 microcontrollers.</description>
+      <description>A commercial-grade fall detection system for the elderly using mmWave sensors, PIR, Zigbee, and ESP32 microcontrollers.</description>
     </item>
     <item>
-      <title>Educational Data Normalization Pipeline</title>
-      <link>http://localhost:1313/projects/data-normalization/</link>
+      <title>Data Analysis App</title>
+      <link>http://localhost:1313/projects/data-analysis-app/</link>
       <pubDate>Wed, 20 May 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/projects/data-normalization/</guid>
-      <description>Data extraction and normalization pipeline for educational course data from multiple web sources.</description>
+      <guid>http://localhost:1313/projects/data-analysis-app/</guid>
+      <description>Analytical overview, technical specifications, and description for the educational data aggregation and recommendation project.</description>
     </item>
     <item>
-      <title>Custom SQL Lexer and Parser</title>
-      <link>http://localhost:1313/projects/sql-parser/</link>
+      <title>mySQLq Lexical and Syntax Analyzer</title>
+      <link>http://localhost:1313/projects/sql-lexer-parser/</link>
       <pubDate>Tue, 05 May 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/projects/sql-parser/</guid>
-      <description>Engineering of a custom lexical analyzer and parser utilizing Flex, Bison, and C.</description>
+      <guid>http://localhost:1313/projects/sql-lexer-parser/</guid>
+      <description>Analytical overview, technical specifications, and description for the custom SQL lexer and parser project.</description>
     </item>
     <item>
-      <title>Modular Arithmetic Calculator</title>
+      <title>Low-Profile Embedded Calculator</title>
       <link>http://localhost:1313/projects/calculator/</link>
-      <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 18 Jul 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/projects/calculator/</guid>
-      <description>Design and implementation of a fully functional, battery-powered calculator built on the Arduino platform.</description>
+      <description>Design and implementation of a fully functional, battery-powered embedded calculator built on the Waveshare RP2040 Plus platform.</description>
     </item>
     <item>
       <title>About me</title>
