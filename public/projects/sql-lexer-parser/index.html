@@ -53,8 +53,10 @@ body {
 .button,
 .post-tags a,
 .toc details summary,
-.toc a {
-    transition: all 1s ease-in-out !important;
+.toc a,
+.riscv-link,
+#menu-toggle svg line {
+    transition: all 0.3s ease-in-out !important;
 }
 
  
@@ -64,8 +66,10 @@ body {
 .toc a,
 strong,
 .page-header h1, 
-.post-title {
+.post-title,
+.riscv-link {
     color: #FFC107 !important;
+    font-weight: bold !important;
 }
 
  
@@ -74,9 +78,13 @@ strong,
 .toc details summary:hover,
 .toc a:hover,
 .button:hover,
-.menu a:hover {
+.menu a:hover,
+.riscv-link:hover {
     color: #ffffff !important;
     border-color: #ffffff !important;
+}
+#menu-toggle:hover svg line {
+    stroke: #ffffff !important;
 }
 
  
@@ -122,6 +130,44 @@ code {
     border: 1px solid #FFC107 !important;
 }
 
+ 
+.profile_inner {
+    gap: 20px !important;  
+}
+
+.profile_inner h1 {
+    margin: 10px !important;
+    line-height: 1 !important;
+}
+
+.profile_inner .subtitle {
+    margin: 15px 0 !important;  
+    line-height: 1 !important;  
+}
+
+.profile_inner .social-icons {
+    padding-top: 5px !important;    
+    padding-bottom: 5px !important; 
+}
+
+.profile_inner .buttons {
+    margin-top: 10px !important;    
+}
+
+ 
+.main {
+    padding-top: 0px !important;  
+}
+
+.profileMode {
+    margin-top: -120px !important;  
+}
+
+ 
+.footer {
+    margin-top: -15px !important;  
+    padding-top: 0px !important;    
+}
  
  
 .header {
@@ -439,7 +485,7 @@ document.addEventListener('DOMContentLoaded', function () {
     </main>
     
 <footer class="footer">
-    <span>&copy; 2026 <a href="http://localhost:1313/">Konstantinos Zoropoulos</a>. All Rights Reserved.</span>
+    <span>&copy; 2026 Konstantinos Zoropoulos. All Rights Reserved.</span>
 </footer>
 </body>
 

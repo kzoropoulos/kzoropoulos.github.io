@@ -28,8 +28,10 @@ body {
 .button,
 .post-tags a,
 .toc details summary,
-.toc a {
-    transition: all 1s ease-in-out !important;
+.toc a,
+.riscv-link,
+#menu-toggle svg line {
+    transition: all 0.3s ease-in-out !important;
 }
 
 /* 2.2 Static Coloration (Amber) */
@@ -39,8 +41,10 @@ body {
 .toc a,
 strong,
 .page-header h1, 
-.post-title {
+.post-title,
+.riscv-link {
     color: #FFC107 !important;
+    font-weight: bold !important;
 }
 
 /* 2.3 Hover Behavior (Transition to White) */
@@ -49,9 +53,13 @@ strong,
 .toc details summary:hover,
 .toc a:hover,
 .button:hover,
-.menu a:hover {
+.menu a:hover,
+.riscv-link:hover {
     color: #ffffff !important;
     border-color: #ffffff !important;
+}
+#menu-toggle:hover svg line {
+    stroke: #ffffff !important;
 }
 
 /* 2.4 Hover Behavior (Transition to Amber) */
@@ -99,6 +107,44 @@ code {
     border: 1px solid #FFC107 !important;
 }
 
+/* 3.5 Homepage (Profile Mode) Spacing Adjustments */
+.profile_inner {
+    gap: 20px !important; /* Forces the flexbox container to shrink the space between all major elements */
+}
+
+.profile_inner h1 {
+    margin: 10px !important;
+    line-height: 1 !important;
+}
+
+.profile_inner .subtitle {
+    margin: 15px 0 !important; /* Adds just a tiny bit of space above and below the subtitle */
+    line-height: 1 !important; /* Squeezes the gap created by the <br> in your subtitle */
+}
+
+.profile_inner .social-icons {
+    padding-top: 5px !important;    
+    padding-bottom: 5px !important; 
+}
+
+.profile_inner .buttons {
+    margin-top: 10px !important;    
+}
+
+/* 3.6 Main Container Spacing (Pulling content up) */
+.main {
+    padding-top: 0px !important; /* Overrides default theme padding */
+}
+
+.profileMode {
+    margin-top: -120px !important; /* Negative margin pulls the entire block upwards */
+}
+
+/* 3.7 Footer Spacing (Pulling it up) */
+.footer {
+    margin-top: -15px !important; /* Negative margin pulls the footer upwards */
+    padding-top: 0px !important;   /* Removes any default theme padding above the text */
+}
 /* ==========================================================================
    4. HEADER & NAVIGATION MENU (DROPDOWN)
    ========================================================================== */
