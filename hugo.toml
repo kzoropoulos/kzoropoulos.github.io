@@ -1,0 +1,10 @@
+baseURL = 'https://example.org/'
+locale = 'en-us'
+title = 'Portfolio'
+
+[params]
+  projectsLink = "/projects/"
+  resumeLink = "/downloads/resume.pdf"
+  emailAddress = "kostaszoropoulos@gmail.com"
+  linkedinLink = "https://linkedin.com/in/kzoropoulos"
+  githubLink = "https://github.com/kzoropoulos"

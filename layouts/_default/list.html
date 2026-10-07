@@ -1,0 +1,17 @@
+{{ define "main" }}
+<div class="max-w-7xl mx-auto px-6 pt-32 pb-24 animate-fade-in-up">
+    <h1 class="text-display-md font-bold text-gray-900 mb-12 text-center">{{ .Title }}</h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {{ range .Pages }}
+        <div class="bg-textbox-yellow rounded-card p-10 shadow-soft-float hover:shadow-nav-elevation transition-shadow duration-300">
+            <h2 class="text-2xl font-bold mb-4">
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </h2>
+            <p class="text-gray-700 font-light mb-8">{{ .Summary }}</p>
+            <a href="{{ .RelPermalink }}" class="bg-button-green text-gray-900 px-6 py-2 rounded-pill font-bold hover:bg-opacity-80 transition-colors inline-block">Read more</a>
+        </div>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.Locale | default "en" }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+    {{ $css := resources.Get "css/main.css" | postCSS }}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+</head>
+<body class="bg-bg-warm-white font-sans text-gray-900 antialiased overflow-x-hidden">
+    <main class="min-h-screen">
+        {{ block "main" . }}{{ end }}
+    </main>
+</body>
+</html>

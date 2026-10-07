@@ -1,0 +1,185 @@
+# data/projects.yml
+- title: "mmWave Fall Detection System"
+  category: "Hardware"
+  timeline: "June 2026 - Present"
+  description: "A commercial-grade fall detection system for the elderly using mmWave sensors, PIR, Zigbee, and ESP32 microcontrollers."
+  image: "/images/FDS_image.jpg"
+  date: 2026-07-01
+  draft: false
+  tags: ["C", "C++", "ESP32", "mmWave", "Hardware Integration", "Zigbee", "IoT"]
+  keywords: ["C", "C++", "ESP32", "mmWave", "Hardware Integration", "Embedded Systems", "Signal Processing", "Radar Technology", "Fall Detection"]
+  weight: 1
+  ShowToc: true
+  extended_details: |
+    ### Overview
+    Development of a comprehensive, non-intrusive fall detection architecture utilizing millimeter-wave (mmWave) radar technology. The system processes spatial and micro-motion data in real-time to map 3D posture and identify sudden altitude drops (immobilization on the floor) characteristic of falls. Designed for elderly care, it ensures continuous operation without compromising user privacy through the use of optical cameras.
+
+    ### System Architecture
+    The architecture is divided into a decentralized network of ultra-low-power room sensors and a resilient central gateway.
+
+    #### Peripheral Sensors (Room Units)
+    *   **Sensing Technology:** Utilizes 60GHz Pulsed Coherent or Low-Power FMCW radar for high-resolution micro-motion detection (e.g., breathing) and accurate 3D posture mapping.
+    *   **Wake-up Mechanism:** Integrates an ultra-low-power PIR sensor (under 3 µA standby) to provide hardware interrupts, instantly waking the microcontroller and radar from deep sleep only when motion is present.
+    *   **Processing & Connectivity:** Employs a low-power 32-bit SoC (such as the ESP32-H2) to process the radar point cloud locally and transmit event-driven binary states via Zigbee 3.0.
+    *   **Power Management:** Powered by a high-capacity, non-rechargeable Li-SOCl2 battery combined with a supercapacitor to handle sudden current spikes without voltage drops, ensuring years of autonomous operation.
+
+    #### Central Unit (Gateway)
+    *   **Core Processing:** Powered by a robust microcontroller running a real-time operating system (RTOS), paired with a dedicated Zigbee radio co-processor to act as an always-on network coordinator.
+    *   **Alert Routing:** Connects to the internet via Wi-Fi or Ethernet to securely dispatch emergency notifications to designated contacts or health services upon receiving a fall event.
+    *   **Resilience:** Features an uninterruptible power supply (UPS) circuit with zero-transfer time and a lithium-ion backup battery, ensuring uninterrupted functionality during power outages.
+    *   **User Interface:** Includes LED status indicators, a built-in piezo buzzer for immediate local feedback, and a physical button for pairing new devices or canceling false alarms.
+
+    ### Commercial Application & Advanced Features
+    Targeting commercial deployment in medical alert and elderly care environments, the system incorporates several advanced fail-safes and filtering mechanisms.
+    *   **Pet Immunity:** Implements Radar Cross Section (RCS) filtering so the algorithm successfully ignores dogs or cats moving near the floor.
+    *   **System Reliability:** Utilizes hardware Watchdog Timers (WDT) to automatically recover from software crashes and supports Over-The-Air (OTA) updates for remote algorithm improvements.
+    *   **Privacy-First Design:** By processing all complex spatial data internally on the sensor's DSP and outputting only simple states (e.g., "Fall_Detected = 1"), the system completely eliminates the need for raw data streaming, protecting user privacy and drastically reducing energy consumption.
+
+- title: "Data Analysis App"
+  category: "Software"
+  timeline: "April 2026 - June 2026"
+  description: "Analytical overview, technical specifications, and description for the educational data aggregation and recommendation project."
+  image: "/images/DAA_image.jpg"
+  date: 2026-05-20
+  draft: false
+  tags: ["Python", "pandas", "BeautifulSoup", "API", "Data Engineering", "Tkinter", "Matplotlib"]
+  keywords: ["Python", "pandas", "Data Engineering", "Web Scraping", "Data Normalization", "API Integration", "Recommendation Engine"]
+  weight: 2
+  ShowToc: true
+  extended_details: |
+    ## Overview
+    The project is a Python-based hybrid data collection system designed to aggregate educational course data from multiple internet sources. It features an automated normalization pipeline, a Graphical User Interface (GUI), and a recommendation engine that utilizes a composite scoring algorithm to evaluate and suggest courses based on user-defined parameters. Ultimately, it generates a cohesive, structured dataset ready for algorithmic analysis and querying.
+
+    ## Technical Implementation & Features
+
+    ### Data Extraction & Integration
+    The system relies on a hybrid data integration approach, retrieving data from 6 independent sources through RESTful API requests and DOM parsing utilizing `BeautifulSoup`.
+    *   **APIs:** Integrates with Coursera (API v1), the OpenLibrary Search API, and the iTunes U / Apple Podcasts API.
+    *   **Web Scraping:** Extracts information from The Open University (OpenLearn), ClassCentral, and Saylor Academy.
+
+    ### Data Normalization
+    *   Employs mapping dictionaries to standardize heterogeneous category and difficulty fields into a uniform schema.
+    *   Utilizes the `pandas` library for structural normalization, unifying schemas across the diverse sources, and handling missing values.
+
+    ### Recommendation Engine
+    *   Computes a composite score that prioritizes course duration (60% weight) and cost (40% weight).
+    *   Dynamically handles missing values using median imputation.
+    *   Returns the top 3 optimal course suggestions for the user.
+
+    ### Graphical User Interface (GUI)
+    *   Built entirely with the standard library's Tkinter.
+    *   Provides data filtering and visualization triggers.
+    *   Features an `Auto-Sync` mechanism that automatically updates records every 30 minutes.
+
+    ### Data Visualization
+    *   Implements the Matplotlib library for statistical analysis.
+    *   Includes bar charts for displaying top duration, pie charts for mapping difficulty distribution, and line plots for correlating cost-to-duration.
+
+    ### Anti-Bot & Error Handling
+    *   Utilizes the `cloudscraper` library to bypass 403 Forbidden responses during web scraping.
+    *   Maintains system stability during individual scraper failures by incorporating isolated `try-except` blocks for each source.
+    *   Applies a regex-based parsing function (`safe_float`) to ensure robust extraction of cost data.
+
+    ### Data Storage
+    *   Extracted course records are persistently appended to a file named `courses.csv`.
+    *   Idempotency is maintained via duplicate removal using `drop_duplicates()` based on the course title and the educational provider.
+
+    ## System Architecture
+
+    The application is structured into modular Python files to separate concerns:
+    *   `main.py`: Initializes the application, manages the GUI event loop, and handles data visualization bindings.
+    *   `data_collection.py`: Executes HTTP requests and utilizes DOM parsing (BeautifulSoup) for data extraction.
+    *   `utils.py`: Contains the data cleaning functions, mapping dictionaries, and the core normalization logic.
+    *   `recommendation.py`: Executes the Min-Max normalization process and the composite scoring algorithms.
+
+    ## Dependencies
+    The project relies on the following libraries for execution:
+    *   `requests`
+    *   `beautifulsoup4`
+    *   `cloudscraper`
+    *   `pandas`
+    *   `numpy`
+    *   `matplotlib`
+    *   `tkinter` (Python Standard Library)
+
+- title: "mySQLq Lexical and Syntax Analyzer"
+  category: "Software"
+  timeline: "March 2026 - May 2026"
+  description: "Analytical overview, technical specifications, and description for the custom SQL lexer and parser project."
+  image: "/images/LP_image.jpg"
+  date: 2026-05-05
+  draft: false
+  tags: ["C", "Flex", "Bison", "Compilers", "SQL"]
+  keywords: ["C", "Flex", "Bison", "Compilers", "Lexical Analysis", "Parsing", "Systems Programming"]
+  weight: 3
+  ShowToc: true
+  extended_details: |
+    ## Overview 
+    The repository contains the implementation of a compiler front-end, engineering a custom lexical analyzer and parser utilizing the combination of Flex, Bison, and C. It processes **mySQLq**, a domain-specific pseudo-language based on SQL. The project was developed as a laboratory assignment for the "Principles of Programming Languages & Compilers" course at the Computer Engineering and Informatics Department, University of Patras. The core architecture utilizes Flex for token generation (Lexical Analysis) and Bison for syntactic structure validation (Parsing). This is augmented with a custom Symbol Table written in C to enforce strict semantic rules and scope resolution.
+
+    ## System Architecture
+    The architecture is strictly modular and comprises three distinct phases:
+
+    *   **Lexical Analysis (`askisi.l`)**: Employs deterministic finite automata (DFA) generated by Flex to stream characters into discrete tokens such as keywords, identifiers, literals, and operators. Comments and whitespaces are explicitly discarded during this phase.
+    *   **Syntax Analysis (`askisi.y`)**: Implements a Context-Free Grammar (CFG) in Backus-Naur Form (BNF) to design strict grammatical rules for the accurate interpretation and robust error handling of SQL instructions. Bison generates a parser that verifies the structural correctness of the mySQLq statements.
+    *   **Semantic Analysis (`symtable.c`)**: A dynamically allocated Symbol Table data structure maintains the state of declared entities, including tables, columns, types, and aliases. It is invoked during parsing reductions to perform type-checking and scope validation.
+
+    ## Supported Features & Constraints
+
+    ### 1. Syntactic Constructs
+    *   Supports `CREATE TABLE` and `SELECT` statement constructs.
+    *   Enforces strict sequence clauses (`SELECT` -> `FROM` -> `WHERE` -> `GROUP BY` -> `ORDER BY` -> `LIMIT`).
+    *   Keywords are case-insensitive, while identifiers are strictly case-sensitive.
+    *   Requires a mandatory semicolon (`;`) at the end of each statement for termination.
+
+    ### 2. Semantic Validation
+    *   **Entity Resolution**: Verifies table and column existence prior to reference and prevents duplicate declarations within the same scope.
+    *   **Type System**: Enforces strong typing in the `WHERE` clause. `INT` evaluates against integer literals, `FLOAT` evaluates against integer or floating-point literals, and `VARCHAR(n)` evaluates against string literals.
+    *   **Relational Algebra**: Validates `JOIN ... ON ...` constraints across multiple tables, verifying that the compared tables and columns exist.
+    *   **Aliasing**: Resolves table aliases (`AS`) and validates aliased column references (e.g., `alias.column_name`).
+
+    ## System Requirements
+    To compile and execute the parser, the required toolchain includes:
+    *   **C Compiler**: `gcc` (GNU Compiler Collection).
+    *   **Lexer Generator**: `flex`.
+    *   **Parser Generator**: `bison`.
+
+- title: "Low-Profile Embedded Calculator - Revised"
+  category: "Hardware"
+  timeline: "November 2025 - Present"
+  description: "Design and implementation of a fully functional, battery-powered embedded calculator built on the Waveshare RP2040 Plus platform."
+  image: "/images/CC_image.jpg"
+  date: 2026-07-18
+  draft: false
+  tags: ["RP2040", "Hardware Integration", "3D Printing", "C", "FreeRTOS", "LVGL", "KiCad"]
+  keywords: ["RP2040", "C", "Embedded Systems", "Hardware Integration", "Microcontrollers", "3D Printing", "PCB Design", "LVGL", "FreeRTOS"]
+  weight: 4
+  ShowToc: true
+  extended_details: |
+    ### Overview
+    Designed and engineered a fully functional, battery-powered low-profile calculator. The system utilizes a robust, custom-designed architecture centered around the Waveshare RP2040 Plus microcontroller module. The project seamlessly integrates this custom electronic hardware with a low-tolerance 3D-printed enclosure and C-based firmware. 
+
+    ### Technical Implementation
+
+    #### Hardware & Electronics
+    *   **Core Microcontroller:** Integrated the Waveshare RP2040 Plus, featuring an RP2040 dual-core Arm Cortex-M0+ processor (up to 133 MHz), 264kB SRAM, and 2MB QSPI flash. 
+    *   **PCB Design:** Engineered custom electronic hardware schematics and PCB layouts using KiCad 10.0 electronic design automation (EDA) software. The hardware repository explicitly includes the generated Gerber manufacturing files.
+    *   **Display Interface:** Interfaced a Waveshare 2.0 LCD directly to the MCU via hardware SPI. The data routing establishes direct connections for MOSI, SCK, Chip Select (TFT_CS), Data/Command (TFT_DC), Reset (TFT_RST), and Backlight Control (TFT_BL).
+    *   **Input Matrix:** Engineered a direct-GPIO 5x4 key matrix comprising 20 tactile push-button switches. The matrix utilizes multiplexed row (ROW1 through ROW5) and column (COL1 through COL4) lines to maximize GPIO efficiency. The matrix is hardware-debounced and protected against ghosting via 1N4148W fast switching diodes (SOD-123 packages) on every switch.
+    *   **Power Subsystem:** Integrated a 3.7V 550mAh Lithium Polymer (LiPo) battery cell, managed locally by an SPDT slide power switch.
+
+    #### Firmware & Software
+    *   **Language & Toolchain:** Developed the firmware entirely in pure C, utilizing the official toolchain to achieve hardware-level optimization and concurrent execution.
+    *   **Operating System:** Utilized FreeRTOS for concurrent task scheduling. Independent tasks are configured to handle operations such as SPI driver communication.
+    *   **User Experience:** Built a modular and streamlined graphical user interface rendered via the LVGL (Light and Versatile Graphics Library) framework.
+    *   **Low-Level Integration:** Configured custom SPI driver integrations and utilized hardware-level optimization for display and input communication.
+    *   **Power Management:** Implemented sleep state APIs to allow the microcontroller to enter low-power modes following predefined periods of inactivity. 
+
+    #### Mechanical Design
+    *   **Enclosure:** Engineered and executed a custom, low-tolerance 3D-printed chassis to securely house the physical hardware components. The 3D computer-aided design (CAD) models are maintained within the hardware domain of the project repository.
+
+    ### Open Source Licensing
+    To maintain organizational clarity, the repository's licensing model is compartmentalized based on the medium of the components.
+    *   **Hardware Architecture:** All physical EDA designs, including schematics, PCB layouts, and 3D CAD models, are strictly governed by the CERN Open Hardware Licence Version 2 - Strongly Reciprocal (CERN-OHL-S v2).
+    *   **Firmware:** The C source code, scripts, and RTOS configurations are distributed under the MIT License.
+    *   **Documentation:** Theoretical specifications, datasheets, and assembly instructions are reserved with no open-source license granted.
