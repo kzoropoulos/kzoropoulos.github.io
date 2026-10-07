@@ -20,7 +20,7 @@
         <div class="flex flex-col gap-8">
 
             <!-- Iterates dynamically over data/projects.yml -->
-            {{ range hugo.Data.projects }}
+            {{ range site.Data.projects }}
 
             <!-- Supreme Parent Wrapper (Semantic Article) -->
             <article class="scroll-reveal opacity-0 translate-y-12 transition-all duration-[1200ms] ease-out bg-violet-100 rounded-[2rem] p-6 sm:p-8 shadow-sm w-full" data-expand-container>
@@ -45,14 +45,14 @@
                         <div>
                             <div class="flex justify-between items-start mb-1 gap-4">
                                 <h3 class="text-3xl font-bold text-gray-900">{{ .title }}</h3>
-                    
+
                                 {{ if .timeline }}
                                 <time class="flex items-center gap-2 text-emerald-500 font-semibold whitespace-nowrap mt-2">
                                     {{ .timeline }}
-                                    
+
                                     <!-- Conditional statement checking for the "Present" keyword -->
                                     {{ if in .timeline "Present" }}
-                                    
+
                                     <!-- Pulsing Dot Node -->
                                     <span class="relative flex h-2.5 w-2.5" aria-hidden="true">
                                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -62,7 +62,7 @@
                                 </time>
                                 {{ end }}
                             </div>
-                
+
                             {{ if .category }}
                             <span class="block text-orange-400 text-sm font-semibold uppercase tracking-wider mb-4">
                                 {{ .category }}
@@ -182,7 +182,7 @@
 <!-- Asynchronous DOM Manipulation (Optimized with Event Delegation) -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        
+
         // Intersection Observer Logic
         if ('IntersectionObserver' in window) {
             const observerOptions = {
@@ -222,7 +222,7 @@
             contentNode.classList.toggle('opacity-100');
 
             const isClosed = contentNode.classList.contains('grid-rows-[0fr]');
-            
+
             if (isClosed) {
                 iconNode.textContent = '+';
                 button.setAttribute('aria-expanded', 'false');
@@ -231,7 +231,7 @@
                 iconNode.textContent = '−';
                 button.setAttribute('aria-expanded', 'true');
             }
-            
+
             // Locate all strong tags and list items within the markdown-rendered prose
             const boldElements = document.querySelectorAll('.prose strong');
             const listItems = document.querySelectorAll('.prose li');
@@ -240,7 +240,7 @@
             boldElements.forEach(el => {
               if (el.textContent.trim() === 'CreaTech Project') {
                 if (el.nextElementSibling && el.nextElementSibling.classList.contains('injected-dl-btn')) return;
-                
+
                 const btn = document.createElement('a');
                 btn.href = '/downloads/CreaTech_Certificate.pdf';
                 btn.download = '';
@@ -255,15 +255,15 @@
             listItems.forEach(li => {
               if (li.textContent.trim().includes('Preparation and presentation of a professional business plan')) {
                 if (li.querySelector('.injected-dl-btn')) return;
-                
+
                 const btn = document.createElement('a');
-                btn.href = '/downloads/Business_Plan.pdf'; 
+                btn.href = '/downloads/Business_Plan.pdf';
                 btn.download = '';
                 btn.setAttribute('aria-label', 'Download Business Plan');
                 btn.className = 'injected-dl-btn inline-flex items-center justify-center w-6 h-6 ml-2 bg-emerald-100 text-emerald-900 rounded-md hover:bg-emerald-200 transition-colors shadow-sm align-text-bottom';
                 // Using the same download arrow SVG, but styling distinguishes it
                 btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>';
-        
+
                 // Append the button as a child of the list item so it sits inline at the end of the text
                 li.appendChild(btn);
               }
