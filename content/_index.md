@@ -4,7 +4,7 @@ title: |
     Computer & Informatics Engineer
     
 subtitle: |
-    Undergraduate Student at CEID Department of University of Patras. Actively seeking an industry internship for Summer 2027.
+    Undergraduate Student at CEID of University of Patras. Actively seeking an industry internship for the  **Summer of 2027** .
     Specializing in Hardware-Software Integration, Embedded Systems, Electronic Design and Low-Level Architecture (C, C++, RISC-V).
 projectsSectionTitle: "Projects"
 imagePlaceholderText: "image"

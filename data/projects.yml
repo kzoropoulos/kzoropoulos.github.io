@@ -3,6 +3,7 @@
   category: "Hardware"
   timeline: "June 2026 - Present"
   description: "A commercial-grade fall detection system for the elderly using mmWave sensors, PIR, Zigbee, and ESP32 microcontrollers."
+  github_url: "https://github.com/kzoropoulos/Fall_Detection_System"
   image: "/images/FDS_image.jpg"
   date: 2026-07-01
   draft: false
@@ -39,6 +40,7 @@
   category: "Software"
   timeline: "April 2026 - June 2026"
   description: "Analytical overview, technical specifications, and description for the educational data aggregation and recommendation project."
+  github_url: "https://github.com/kzoropoulos/Data_Analysis_App"
   image: "/images/DAA_image.jpg"
   date: 2026-05-20
   draft: false
@@ -106,6 +108,7 @@
   category: "Software"
   timeline: "March 2026 - May 2026"
   description: "Analytical overview, technical specifications, and description for the custom SQL lexer and parser project."
+  github_url: "https://github.com/kzoropoulos/mySQL_Lexer_Parser"
   image: "/images/LP_image.jpg"
   date: 2026-05-05
   draft: false
@@ -148,6 +151,7 @@
   category: "Hardware"
   timeline: "November 2025 - Present"
   description: "Design and implementation of a fully functional, battery-powered embedded calculator built on the Waveshare RP2040 Plus platform."
+  github_url: "https://github.com/kzoropoulos/Calculator"
   image: "/images/CC_image.jpg"
   date: 2026-07-18
   draft: false
